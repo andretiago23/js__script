@@ -6,7 +6,7 @@ const leitor = readline.createInterface({
 })
 leitor.question('Qual é seu nome?', (nome) => {
     console.log('Olá,', nome)
-    console.log('boas vindas ao nosso sitema')
+    console.log('boas vindas ao nosso sistema')
 
     leitor.question('Qual é a sua idade?', (idade) => {
 

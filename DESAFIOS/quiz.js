@@ -23,10 +23,23 @@ leia.question('1- Qual a capital do Brasil?\n A)Rio de Janeiro\n b)São Paulo\n 
         } else {
             console.log('Errou!')
         }
-        console.log('numero de acertos:', acertos)
 
-        leia.close()
+        leia.question('3- quem descobriu o Brasil?\n a) Pedro Alvarez Cabral\n b) Ìndios\n c) Cristovão Colombo\n :', (resposta3) => {
+            if (resposta3 == 'a') {
+                console.log('Acertou!')
+                acertos++
+            } else {
+                console.log('Errou!')
+            }
+            leia.close()
+            console.log('numero de acertos:', acertos)
+        })
+
+
+
     })
 
 
 })
+
+
