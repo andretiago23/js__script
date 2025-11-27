@@ -1,21 +1,41 @@
-const readline = require('readline')
 
-const leitor = readline.createInterface({
+import { createInterface } from 'readline'
+import { divisao, multiplicao, potencia, soma, subtracao } from './operacoesMatematicas.js'
+
+
+const leitor = createInterface({
     input: process.stdin,
-    output: process.stdout
+    output: process.stdout,
 })
-leitor.question('Qual é seu nome?', (nome) => {
-    console.log('Olá,', nome)
-    console.log('boas vindas ao nosso sitema')
+leitor.question('Digite o primeiro número:\n> ', (numero1) => {
+    leitor.question('Digite a operação: \n+: soma \n-:subtração\n/:divisão\n*:multiplicação\n', (operacao) => {
+        leitor.question('Digite o segundo número:\n>', (numero2) => {
+            const num1 = Number(numero1)
+            const num2 = Number(numero2)
+            let resultado = null
 
-    leitor.question('Qual é a sua idade?', (idade) => {
+            if (operacao == '+') {
+                resultado = soma(num1, num2)
+            } else if (operacao == '-') {
+                resultado = subtracao(num1, num2)
+            } else if (operacao == '*') {
+                resultado = multiplicao(num1, num2)
+            }
+            else if (operacao == '/') {
+                resultado = divisao(num1, num2)
+            }
+            else {
+                console.log('Operação inválida!')
+            }
+            if (resultado != null) {
+                console.log('O resultado da operação é:', resultado)
+            }
+            leitor.close()
 
-        if (idade < 18) {
-            console.log('Você não pode tirar a sua CNH')
-        } else {
-            console.log('Você pode tirar a sua CNH')
-        }
-        leitor.close()
+        })
+
+
     })
+
 
 })
